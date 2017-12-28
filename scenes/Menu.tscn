@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scripts/mng.gd" type="Script" id=1]
+[ext_resource path="res://content/tilesets/outtilemap2.xml" type="TileSet" id=2]
+[ext_resource path="res://content/gfx/Menu/splashman3.tex" type="Texture" id=3]
+[ext_resource path="res://content/gfx/Menu/cry2.png" type="Texture" id=4]
+[ext_resource path="res://content/gfx/UI/mytheme.tres" type="Theme" id=5]
+[ext_resource path="res://content/gfx/UI/Icons/settings1.tex" type="Texture" id=6]
+[ext_resource path="res://content/gfx/UI/Icons/eyexit.png" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Button
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackgroundNode" type="Node2D" parent="."]
+
+transform/pos = Vector2( 0, 10 )
+script/script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="BackgroundNode"]
+
+transform/pos = Vector2( 0, -10 )
+z/z = 1
+z/relative = false
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 5, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 34, 0, 35, 0, 36, 0, 37, 0, 38, 0, 39, 2, 65536, 1, 65575, 1, 131072, 1, 131111, 1, 196608, 1, 196647, 1, 262144, 1, 262183, 1, 327680, 1, 327719, 1, 393216, 1, 393255, 1, 458752, 1, 458791, 1, 524288, 1, 524327, 1, 589824, 1, 589863, 1, 655360, 1, 655399, 1, 720896, 1, 720935, 1, 786432, 1, 786471, 1, 851968, 1, 852007, 1, 917504, 1, 917543, 1, 983040, 1, 983079, 1, 1048576, 1, 1048615, 1, 1114112, 1, 1114151, 1, 1179648, 1, 1179687, 1, 1245184, 1, 1245223, 1, 1310720, 1, 1310759, 1, 1376256, 1, 1376295, 1, 1441792, 1, 1441831, 1, 1507328, 1, 1507367, 1, 1572864, 1, 1572903, 1, 1638400, 1, 1638439, 1, 1703936, 1, 1703975, 1, 1769472, 1, 1769511, 1, 1835008, 1, 1835047, 1, 1900544, 4, 1900545, 0, 1900546, 0, 1900547, 0, 1900548, 0, 1900549, 0, 1900550, 0, 1900551, 0, 1900552, 0, 1900553, 0, 1900554, 0, 1900555, 0, 1900556, 0, 1900557, 0, 1900558, 0, 1900559, 0, 1900560, 0, 1900561, 0, 1900562, 0, 1900563, 0, 1900564, 0, 1900565, 0, 1900566, 0, 1900567, 0, 1900568, 0, 1900569, 0, 1900570, 0, 1900571, 0, 1900572, 0, 1900573, 0, 1900574, 0, 1900575, 0, 1900576, 0, 1900577, 0, 1900578, 0, 1900579, 0, 1900580, 0, 1900581, 0, 1900582, 0, 1900583, 3 )
+
+[node name="Minions" type="TextureFrame" parent="BackgroundNode"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 480.0
+texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="Eyes" type="TextureFrame" parent="BackgroundNode"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -10.0
+margin/right = 640.0
+margin/bottom = 470.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
+
+[node name="Tween" type="Tween" parent="BackgroundNode"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Go" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 5 )
+margin/left = 280.0
+margin/top = 360.0
+margin/right = 346.0
+margin/bottom = 394.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Enter"
+flat = false
+script/script = SubResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 5 )
+margin/left = 30.0
+margin/top = 380.0
+margin/right = 106.0
+margin/bottom = 456.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 6 )
+flat = false
+
+[node name="Button1" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 5 )
+margin/left = 530.0
+margin/top = 380.0
+margin/right = 606.0
+margin/bottom = 456.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 7 )
+flat = false
+
+[connection signal="pressed" from="Go" to="BackgroundNode" method="_on_Press_pressed"]
+
+
